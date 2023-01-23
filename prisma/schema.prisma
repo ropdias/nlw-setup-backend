@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// @@map("habits") make the name in the database to be "habits" instead of Habit
+model Habit {
+  id         String   @id @default(uuid())
+  title      String
+  created_at DateTime
+
+  @@map("habits")
+}
