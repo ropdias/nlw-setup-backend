@@ -4,11 +4,11 @@ This project was developed during the event NLW Setup from Rocketseat.
 
 ## Content Studied and Developed:
 
-- [ ] Back-End
+- [x] Back-End
   - [x] TypeScript configuration
   - [x] First route with Fastify
   - [x] Prisma configuration
-  - [ ] CORS configuration
+  - [x] CORS configuration
 
 ## Technologies:
 
