@@ -2,6 +2,8 @@
 
 This project was developed during the event NLW Setup from Rocketseat.
 
+This repository will be used to save the **Back-End** part of the project.
+
 ## Content Studied and Developed:
 
 - [x] Back-End
@@ -12,9 +14,6 @@ This project was developed during the event NLW Setup from Rocketseat.
 
 ## Technologies:
 
-- ``Node``
-- ``Fastify``
-- ``React``
-- ``React Native``
-- ``Prisma ORM``
-- ``Typescript``
+- `Node` (`Fastify`)
+- `Prisma ORM`
+- `Typescript`
