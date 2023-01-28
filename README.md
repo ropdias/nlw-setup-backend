@@ -16,11 +16,11 @@ This repository will be used to save the **Back-End** part of the project.
     - [x] Models creation
     - [x] Seed Creation
   - [x] Isolating back-end files (creating routes.ts and prisma.ts)
-  - [ ] Routes
+  - [x] Routes
     - [x] New habit creation
     - [x] Day detail (habits completed/possible)
     - [x] Habit toggle in the day
-    - [ ] Day summary
+    - [x] Day summary
 
 ## Technologies:
 
