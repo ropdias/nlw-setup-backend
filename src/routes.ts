@@ -75,10 +75,62 @@ export async function appRoutes(app: FastifyInstance) {
       return dayHabit.habit_id;
     });
 
-    //If completedHabits is undefined it wont be included in the return
+    // If completedHabits is undefined it wont be included in the return
     return {
       possibleHabits,
       completedHabits,
     };
+  });
+
+  app.patch("/habits/:id/toggle", async (request) => {
+    const toggleHabitParams = z.object({
+      id: z.string().uuid(), // This will validate if this is an uuid
+    });
+
+    const { id } = toggleHabitParams.parse(request.params);
+
+    const today = dayjs().startOf("day").toDate();
+
+    // We will check if we have the day in the database already
+    let day = await prisma.day.findUnique({
+      where: {
+        date: today,
+      },
+    });
+
+    if (!day) {
+      // If we don't find in the database we will create one register
+      day = await prisma.day.create({
+        data: {
+          date: today,
+        },
+      });
+    }
+
+    const dayHabit = await prisma.dayHabit.findUnique({
+      where: {
+        day_id_habit_id: {
+          day_id: day.id,
+          habit_id: id,
+        },
+      },
+    });
+
+    if (dayHabit) {
+      // then we will delete that habit associated with that day (untoggle)
+      await prisma.dayHabit.delete({
+        where: {
+          id: dayHabit.id,
+        },
+      });
+    } else {
+      // then we will create that habit associated with that day (toggle)
+      await prisma.dayHabit.create({
+        data: {
+          day_id: day.id,
+          habit_id: id,
+        },
+      });
+    }
   });
 }

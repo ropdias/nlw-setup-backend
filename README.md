@@ -19,7 +19,7 @@ This repository will be used to save the **Back-End** part of the project.
   - [ ] Routes
     - [x] New habit creation
     - [x] Day detail (habits completed/possible)
-    - [ ] Habit toggle in the day
+    - [x] Habit toggle in the day
     - [ ] Day summary
 
 ## Technologies:
