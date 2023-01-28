@@ -70,6 +70,7 @@ export async function appRoutes(app: FastifyInstance) {
     });
 
     // ? will verify if day is null (it can be)
+    // This is called "Optional chaining (?.)"
     const completedHabits = day?.dayHabits.map((dayHabit) => {
       return dayHabit.habit_id;
     });
