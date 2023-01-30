@@ -71,11 +71,11 @@ export async function appRoutes(app: FastifyInstance) {
 
     // ? will verify if day is null (it can be)
     // This is called "Optional chaining (?.)"
-    const completedHabits = day?.dayHabits.map((dayHabit) => {
-      return dayHabit.habit_id;
-    });
+    const completedHabits =
+      day?.dayHabits.map((dayHabit) => {
+        return dayHabit.habit_id;
+      }) ?? []; // If completedHabits is undefined or null it will be []
 
-    // If completedHabits is undefined it wont be included in the return
     return {
       possibleHabits,
       completedHabits,
